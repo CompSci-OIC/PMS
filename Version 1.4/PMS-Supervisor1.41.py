@@ -41,6 +41,15 @@ import csv
 
 # set this to the name of the serial port for the board you have connected
 
+
+# 03/10/2019 v 1.41
+# Changed toolbar options from cascades to commands
+
+#Hopefully the last version
+#Things to implement in vetsion 2
+# - Build a graph on Canvas by hand(to solve the size of file issue as matplotlib libraries are too big)
+# - Implement the whole project in Classes
+
 def getPort(): #Function to auto get port
 	ports = list(serial.tools.list_ports.comports())
 	comPort = str(ports[-1])
@@ -259,9 +268,9 @@ def initToolbar(master):
     configMenu = Menu(toolbar)
     mPointMenu = Menu(configMenu)
     toolbar.add_cascade(label = "Config",menu = configMenu)
-    configMenu.add_cascade(label = "Voltage", command = setVoltage)
-    configMenu.add_cascade(label = "Ultra Sound Meter", underline = 0,command = setUltraSound)
-    configMenu.add_cascade(label = "IR sensor", underline = 0,command = irSensor)
+    configMenu.add_command(label = "Voltage", command = setVoltage)
+    configMenu.add_command(label = "Ultra Sound Meter", underline = 0,command = setUltraSound)
+    configMenu.add_command(label = "IR sensor", underline = 0,command = irSensor)
     configMenu.add_separator()
     configMenu.add_command(label = "Samples", command = samplePop)
     configMenu.add_command(label = "Interval", command = intervalPop)
@@ -346,7 +355,7 @@ def irSensor():
     readSer()
     unit = "time period (ms)"
     chanNum = 2
-    #print("chan num ",chanNum)
+    print("chan num ",chanNum)
     chanDesc.set("Chan: " + chanStr[chanNum])
     a.set_ylabel(yAxisLabel[chanNum])
 
