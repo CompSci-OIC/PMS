@@ -42,7 +42,7 @@ import csv
 # set this to the name of the serial port for the board you have connected
 
 
-# 03/10/2019 v 1.41
+# 03/10/2019 v 1.4.1
 # Changed toolbar options from cascades to commands
 
 #Hopefully the last version
@@ -65,7 +65,7 @@ try:
 	serialPort = getPort()
 except:
 	print("Port not found")
-verStr = "1.4"
+verStr = "1.4.1"
 
 creditsStr = "Physics Measurement System v" + verStr + "\nJune 2019\n\nCOMPSCI GANG\nGUI:Adi Bozzhanov\nArduino: Laveen Chandnani\nSensors: Martin Lee & Tanthun Assawapitiyaporn\n"
 
