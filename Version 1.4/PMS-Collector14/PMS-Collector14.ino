@@ -1,3 +1,4 @@
+
 //
 // PMS Collector
 // Collects data from a set of sensors
@@ -392,13 +393,13 @@ float ultrasonicSensor(unsigned long interval) {
     previousMillis = currentMillis;
     digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
     digitalWrite(trigPin, HIGH);
-    delayMicroseconds(30);
+    delayMicroseconds(10);
     digitalWrite(trigPin, LOW);
     // Reads the echoPin, returns the sound wave travel time in microseconds
     duration = pulseIn(echoPin, HIGH);
     currentCollectMode = channelSet[currentChan].getMode();
     if (currentCollectMode == MODE_CAL) {
-      distance = duration * 0.1715;
+      distance = (duration * 0.1715) + 31.121;
     }
     if (currentCollectMode == MODE_RAW) {
       distance = duration;
